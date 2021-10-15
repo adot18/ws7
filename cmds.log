@@ -1,0 +1,1000 @@
+  406  sort helpful.txt | uniq -c | sort -nk1 --reverse | head
+  407  history > cmds.log
+  408  mkdir ws3
+  409  script ws3.txt
+  410  ls
+  411  mv ws3.txt ws3
+  412  ls
+  413  cd ws3
+  414  ls
+  415  less ws3.txt
+  416  perl -pe 's/\x1b\[[0-9;]*[mG]//g' ws3.txt > ws3.txt.clean
+  417  tr -cd '\11\12\15\40-\176' < ws3.txt.clean > ws3.txt.clean2
+  418  sed -i "s/^M//g" ws3.txt.clean2
+  419  ls
+  420  less ws3.txt.clean2
+  421  vim ws3.txt.clean2
+  422  less ws3.txt.clean2
+  423  ls
+  424  git init
+  425  git add cmds.log ws3.txt.clean2
+  426  git commit -m "worksheet 3"
+  427  git remote add origin https://github.com/adot18/ws3.git
+  428  git push -u origin main
+  429  git push -u origin master
+  430  mkdir WS4
+  431  ls
+  432  cd WS4
+  433  mkdir PRODUCTS
+  434  mkdir CUSTOMERS
+  435  head ../customerids.txt
+  436  cd ~
+  437  ls
+  438  cd ws3
+  439  ls
+  440  sort customerids.txt | uniq -c | sort -nk1 --reverse | head
+  441  cd ~
+  442  cd WS4/
+  443  egrep "	50732546	" ../amazon_reviews_us_Books_v1_02.tsv  > CUSTOMERS/50732546.txt
+  444  cd CUSTOMERS/
+  445  head -n 1 50732546.txt 
+  446  head -n 1 ../../amazon_reviews_us_Books_v1_02.tsv 
+  447  cut -d "		" -f 9  50732546.txt > 5073254.helpfulness.txt
+  448  cut -d "	" -f 9 5073254.txt > 5073254.helpfuless.txt
+  449  ls
+  450  head 5073254.txt
+  451  rm 5073254.txt
+  452  rm -r 5073254.txt
+  453  ls
+  454  rm 5073254
+  455  rm -fv *.txt
+  456  cd /
+  457  cd ~
+  458  cd WS4
+  459  egrep "	50732546	" ../amazon_reviews_us_Books_v1_02.tsv > CUSTOMERS/50732546.txt
+  460  cd CUSTOMERS/
+  461  ls
+  462  head -n 1 50732546.txt 
+  463  cut -d "		" -f 9 50732546.txt > 50732546.helpfuless.txt
+  464  cut --help
+  465  cut -d "	" -f 9 50732546.txt > 50732546.helpfuless.txt
+  466  ls
+  467  head 50732546.helpfuless.txt 
+  468  count = 0; total = 0;
+  469  count=0; total=0
+  470  for i in `cat 50732546.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); 
+  471  for i in `cat 50732546.helpfulness.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; echo "scale=2; $total / $count" | bc
+  472  for i in `cat 50732546.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  473  echo $total
+  474  echo $count
+  475  echo "$total / $count" | bc
+  476  count=0; total=0;
+  477  cd ./
+  478  cd .
+  479  cd ~
+  480  ls
+  481  cd WS4
+  482  egrep "	52615377	" ../amazon_reviews_us_Books_v1_02.tsv > CUSTOMERS/52615377.txt
+  483  egrep "	45041039	" ../amazon_reviews_us_Books_v1_02.tsv  > CUSTOMERS/45041039.txt
+  484  cd CUSTOMERS/
+  485  ls
+  486  cut -d "	" -f 9 45041039.txt > 45041039.helpfuless.txt
+  487  cut -d "	" -f 9 52615377.txt > 52615377.helpfuless.txt
+  488  wc 45041039.helpfuless.txt 
+  489  count=0; total=0
+  490  for i in `cat 50732546.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  491  for i in `cat 52615377.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  492  for i in `cat 45041039.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  493  echo "scale=2; $total / $count" | bc
+  494  count=0; total=0
+  495  for i in `cat 50732546.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  496  echo "scale=2; $total / $count" | bc
+  497  count=0; total=0
+  498  for i in `cat 50732546.helpfuless.txt` ; do total=$(echo $total+($i-5.85)^2 | bc ); ((count++)); done; 
+  499  echo $total
+  500  echo $count
+  501  $echo "$total / $count" | bc
+  502  echo "$total / $count" | bc
+  503  count=0; total=0
+  504  for i in `cat 52615377.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  505  echo "scale=2; $total / $count" | bc
+  506  count=0; total=0
+  507  for i in `cat 52615377.helpfuless.txt` ; do total=$(echo $total+($i-28.08)^2 | bc ); ((count++)); done; 
+  508  echo "$total / $count" | bc
+  509  count=0; total=0
+  510  for i in `cat 45041039.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  511  echo "scale=2; $total / $count" | bc
+  512  count=0; total=0
+  513  for i in `cat 45041039.helpfuless.txt` ; do total=$(echo $total+($i-3.99)^2 | bc ); ((count++)); done; 
+  514  echo "$total / $count" | bc
+  515  cd ~
+  516  cd WS4
+  517  cd ~
+  518  ls
+  519  cd ws3
+  520  ls
+  521  head productids.txt
+  522  cd ws4
+  523  cd ~
+  524  cd WS4/
+  525  egrep "	45041039	" ../amazon_reviews_us_Books_v1_02.tsv  > CUSTOMERS/0385730586.txt
+  526  egrep "0385730586" ../amazon_reviews_us_Books_v1_02.tsv  > CUSTOMERS/0385730586.txt
+  527  egrep "	0385730586
+  528  0811828964
+  529  egrep "	0385730586"
+  530  egrep "0385730586"
+  531  egrep "	0385730586	" ../amazon_reviews_us_Books_v1_02.tsv  > PRODUCTS/0385730586.txt
+  532  egrep "	0811828964	" ../amazon_reviews_us_Books_v1_02.tsv  > PRODUCTS/0811828964.txt
+  533  egrep "	1844161560	" ../amazon_reviews_us_Books_v1_02.tsv  > PRODUCTS/1844161560.txt
+  534  cd PRODUCTS/
+  535  ls
+  536  head 0385730586.txt 
+  537  head -n 1 ../../amazon_reviews_us_Books_v1_02.tsv 
+  538  cut -d "	" -f 9 0385730586.txt > 0385730586.helpfuless.txt
+  539  cut -d "	" -f 9 0811828964.txt > 0811828964.helpfuless.txt
+  540  cut -d "	" -f 9 1844161560.txt > 1844161560.helpfuless.txt
+  541  ls 0385730586.helpfuless.txt 
+  542  head 0385730586.helpfuless.txt 
+  543  count=0;total=0
+  544  for i in `cat 0385730586.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  545  echo "scale=2; $total / $count" | bc
+  546  count=0;total=0
+  547  for i in `cat 0385730586.helpfuless.txt` ; do total=$(echo $total+($i-1.86)^2 | bc ); ((count++)); done; 
+  548  echo " $total / $count" | bc
+  549  ls
+  550  count=0; total=0
+  551  for i in `cat 0811828964.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  552  echo "scale=2; $total / $count" | bc
+  553  count=0;total=0
+  554  for i in `cat 0811828964.helpfuless.txt` ; do total=$(echo $total+($i-3.60)^2 | bc ); ((count++)); done; 
+  555  echo " $total / $count" | bc
+  556  count=0; total=0
+  557  for i in `cat 1844161560.helpfuless.txt` ; do total=$(echo $total+$i | bc ); ((count++)); done; 
+  558  echo "scale=2; $total / $count" | bc
+  559  count=0; total=0
+  560  for i in `cat 1844161560.helpfuless.txt` ; do total=$(echo $total+($i-20.7)^2 | bc ); ((count++)); done; 
+  561  echo " $total / $count" | bc
+  562  cd ~
+  563  cd WS4
+  564  cd PRODUCTS/
+  565  history > cmds.log
+  566  touch README.txt
+  567  vi README.txt 
+  568  head README.txt 
+  569  vi README.txt 
+  570  head README.txt 
+  571  mkdir CUSTOMERS
+  572  mkdir PRODUCTS
+  573  ls
+  574  mkdir WS4
+  575  mv CUSTOMERS WS4
+  576  mv PRODUCTS WS4
+  577  ls
+  578  mv a1 worksheet1
+  579  mv a1.txt.clean a1.txt worksheet1/
+  580  ls
+  581  rm temp
+  582  del temp
+  583  rm -r temp3
+  584  rm -r temp
+  585  ls
+  586  mv great.txt ws3
+  587  rm alexong.txt 
+  588  rm aong.txt 
+  589  ls
+  590  rm -r temp6
+  591  ls
+  592  cd WS4
+  593  ls
+  594  grep 50732546 ../amazon_reviews_us_Books_v1_02.tsv > CUSTOMERS/50732546.txt
+  595  egrep "	50732546	" ../amazon_reviews_us_Books_v1_02.tsv  > CUSTOMERS/50732546b.txt
+  596  cd CUSTOMERS
+  597  ..
+  598  .
+  599  ./
+  600  /
+  601  .
+  602  cd .
+  603  cd/
+  604  cd /
+  605  ls
+  606  cd ~
+  607  ls
+  608  rm WS4
+  609  rm -r WS4
+  610  script ws4.txt
+  611  less ws4.txt
+  612  perl -pe 's/\x1b\[[0-9;]*[mG]//g' ws4.txt 
+  613  ls
+  614  perl -pe 's/\x1b\[[0-9;]*[mG]//g' ws4.txt > ws4.clean.txt
+  615  tr -cd '\11\12\15\40-\176' < ws4.clean.txt > ws4.clean2.txt
+  616  sed -i "s/^M//g" ws4.clean2.txt 
+  617  ls
+  618  rm ws4.clean.txt
+  619  rm ws4.clean2.txt
+  620  perl -pe 's/\x1b\[[0-9;]*[mG]//g' ws4.txt > ws4.clean.txt
+  621  tr -cd '\11\12\15\40-\176' < ws4.clean.txt > ws4.clean2.txt
+  622  sed -i "s/^M//g" ws4.clean2.txt 
+  623  ls
+  624  rm ws4.txt
+  625  rm ws4.clean.txt
+  626  ls
+  627  head ws4.clean2.txt 
+  628  mv ws4.clean2.txt WS$
+  629  ls
+  630  cd WS$
+  631  mv WS$ WS4
+  632  cd WS4
+  633  ls
+  634  mv WS$ ws4.txt
+  635  ls
+  636  git init
+  637  git add ws4.txt 
+  638  cd PRODUCTS/
+  639  ls
+  640  git add README.txt cmds.log 
+  641  git commit -m "Worksheet 4"
+  642  git remote add origin https://github.com/adot18/ws4.git
+  643  git push -u origin master
+  644  mv README.txt WS4
+  645  ls
+  646  mv WS4 README.txt
+  647  head -n 1 ../amazon_reviews_us_Books_v1_02.tsv 
+  648  cd ~
+  649  cd ws3
+  650  ls
+  651  sort customerids.txt | uniq -c 
+  652  sort customerids.txt | uniq -c | wc
+  653  ls
+  654  sort productids.txt | uniq -c | wc
+  655  head -n 1 ../amazon_reviews_us_Books_v1_02.tsv 
+  656  cd ~
+  657  cd assignment2/
+  658  cut -d "	" 6 ../amazon_reviews_us_Books_v1_02.tsv > product_title.txt
+  659  cut -d "	" -f 6 ../amazon_reviews_us_Books_v1_02.tsv > product_title.txt
+  660  sort product_title.txt | uniq -c | wc
+  661  cd ~
+  662  cd ws3
+  663  sort customerids.txt | uniq -c | sort nk-1 --reverse | head -n 100
+  664  sort customerids.txt | uniq -c | sort -nk1 --reverse | head -n 100
+  665  sort customerids.txt | uniq -c | sort -nk1 --reverse | head -n 100 | cut -d " " -f 2 > 100CustomerIDs.txt
+  666  head 100CustomerIDs.txt 
+  667  sort customerids.txt | uniq -c | sort -nk1 --reverse | head -n 100 | cut -d " " -f 1 > 100CustomerIDs.txt
+  668  head
+  669  head 100CustomerIDs.txt 
+  670  sort customerids.txt | uniq -c | sort -nk1 --reverse | head -n 100 | cut -d "	" -f 2 > 100CustomerIDs.txt
+  671  head 100CustomerIDs.txt 
+  672  sort customerids.txt | uniq -c | sort -nk1 --reverse | head -n 100 | cut -d " " -f 2 > 100CustomerIDs.txt
+  673  head 100CustomerIDs.txt 
+  674  sort customerids.txt | uniq -c | sort -nk1 --reverse | head -n 100 | awk -F"\t" '{print $2}' > 100CustomerIDs.txt 
+  675  ls 100CustomerIDs.txt 
+  676  head 100CustomerIDs.txt 
+  677  sort customerids.txt | uniq -c | sort -nk1 --reverse | head -n 100 | awk -F " " '{print $2}' > 100CustomerIDs.txt 
+  678  head 100CustomerIDs.txt 
+  679  vi 100CustomerIDs.txt 
+  680  mv 100CustomerIDs.txt ../
+  681  ls
+  682  cd ~
+  683  ls
+  684  mv 100CustomerIDs.txt assignment2
+  685  cd ws3
+  686  sort productids.txt | uniq -c | sort -nk1 --reverse | head -n 100 | awk -F " " '{print $2}' > 100ProductIDs.txt 
+  687  head productids.txt 
+  688  head 100ProductIDs.txt 
+  689  sort productids.txt | uniq -c | sort -nk1 --reverse | head -n 100 
+  690  ls
+  691  mv 100ProductIDs.txt ../
+  692  ls
+  693  cd ~
+  694  ls
+  695  mv 100ProductIDs.txt assignment2/
+  696  cd assignment2/
+  697  mkdir PRODUCTS
+  698  mkdir CUSTOMERS
+  699  ls
+  700  head -n 1 ../amazon_reviews_us_Books_v1_02.tsv 
+  701  FILENAME="100CustomerIDs.txt"
+  702  LINES=$(cat $FILENAME)
+  703  cd CUSTOMERS/
+  704  for LINE in $LINES ; do cut -d "	" -f 7,8> LINE.txt ; done
+  705  for LINE in $LINES ; do cut -d "	" -f 7,8 ../../amazon_reviews_us_Books_v1_02.tsv > LINE.txt ; done
+  706  ls
+  707  head LINE.txt
+  708  for LINE in $LINES ; do cut -d "	" -f 8,9 ../../amazon_reviews_us_Books_v1_02.tsv > "$LINE.txt" ; done
+  709  ls
+  710  rm LINE.txt
+  711  rm 74.txt
+  712  ls
+  713  for LINE in $LINES ; do egrep "	$LINE	" > "$LINE.txt" ; done
+  714  ls
+  715  rm 74.txt
+  716  cd /
+  717  cd ~
+  718  cd assignment2/
+  719  ls
+  720  vi 100CustomerIDs.txt 
+  721  cd CUSTOMERS
+  722  cd assignment2
+  723  cd ./
+  724  cd.
+  725  cd .
+  726  cd /
+  727  cd ~
+  728  cd assignment2/
+  729  mv 100CustomerIDs.txt CUSTOMERS/
+  730  cd CUSTOMERS/
+  731  ls
+  732  for i in $(cat 100CustomerIDs.txt); do echo "filename=$i>$i; done
+  733  ls
+  734  for i in $(cat 100CustomerIDs.txt); do echo "filename=$i" > $i.txt; done <
+  735  ls
+  736  for i in $(cat 100CustomerIDs.txt); do "filename=$i>$i.txt"; done
+  737  while read line; do echo "filename=$line.txt" > $line; done < 100CustomerIDs.txt 
+  738  ls
+  739  mv 100CustomerIDs.txt ../
+  740  ls
+  741  cd ~
+  742  ls
+  743  cd assignment2/
+  744  ls
+  745  rm -r CUSTOMERS/
+  746  mkdir CUSTOMERS
+  747  mv 100CustomerIDs.txt CUSTOMERS/
+  748  cd CUSTOMERS/
+  749  ls
+  750  while read line; do echo "filename=$line.txt" > $line.txt; done < 100CustomerIDs.txt 
+  751  ls
+  752  while read line; do egrep "	$line	" ../../amazon_reviews_us_Books_v1_02.tsv > echo "filename=$line.txt" > $line.txt; done < 100CustomerIDs.txt 
+  753  while read line; do egrep "	$line	" ../../amazon_reviews_us_Books_v1_02.tsv > echo "filename=$line" > $line.txt; done < 100CustomerIDs.txt 
+  754  while read line; do egrep "	$line	" ../../amazon_reviews_us_Books_v1_02.tsv > > $line.txt; done < 100CustomerIDs.txt 
+  755  head 38672733.txt 
+  756  while read line; do egrep "	$line	" ../../amazon_reviews_us_Books_v1_02.tsv > $line.txt; done < 100CustomerIDs.txt 
+  757  ls
+  758  head 38672733.txt 
+  759  mv 100CustomerIDs.txt ../
+  760  ls
+  761  mkdir helpful
+  762  head -n 1 39134375.txt 
+  763  ls
+  764  rm echo
+  765  rm helpful
+  766  rm -r helpful/
+  767  ;s
+  768  vi 39134375.txt 
+  769  head -n 1 50732546.txt 
+  770  cd ~
+  771  cd ws4
+  772  ls
+  773  cd WS4/
+  774  ls
+  775  cd CUSTOMERS/
+  776  ls
+  777  head -n1 0385730586.txt 
+  778  cd ~
+  779  ls
+  780  cd assignment2/
+  781  ls
+  782  cd CUSTOMERS/
+  783  ls
+  784  for f in *.txt ; do cut -d "	" 8,9 f ; done
+  785  for f in *.txt ; do cut -d "	" -f 8,9 f ; done
+  786  for FILE in *.txt ; do cut -d "	" -f 8,9 FILE; done
+  787  for FILE in *.txt ; do cut -d "	" -f 8,9 $FILE; done
+  788  for FILE in *.txt ; do cut -d "	" -f 8,9 $FILE > $FILE; done
+  789  ls
+  790  head 20595117.txt 
+  791  head 39134375.txt 
+  792  while read line; do egrep "	$line	" ../../amazon_reviews_us_Books_v1_02.tsv > $line.txt; done < ../ 100CustomerIDs.txt 
+  793  while read line; do egrep "	$line	" ../../amazon_reviews_us_Books_v1_02.tsv > $line.txt; done < ../100CustomerIDs.txt 
+  794  for FILE in *.txt ; do cut -d "	" -f 8,9 $FILE > $FILE; done
+  795  head 20595117.txt 
+  796  while read line; do egrep "	$line	" ../../amazon_reviews_us_Books_v1_02.tsv > $line.txt; done < ../100CustomerIDs.txt 
+  797  ls
+  798  head 20595117.txt 
+  799  for file in *.txt ; do echo "5"; done
+  800  for file in *.txt ; do cut -d "	" -f 8,9 $file > $file.new
+  801  for file in *.txt ; do cut -d "	" -f 8,9 $file > $file.new ; done
+  802  ls
+  803  mkdir original
+  804  for file in *.txt ; do mv $file original ; done
+  805  ls
+  806  head 35985708.txt.new 
+  807  cd ~
+  808  cd assignment2/
+  809  ls
+  810  cd PRODUCTS/
+  811  while read line; do egrep "	$line	" ../../amazon_reviews_us_Books_v1_02.tsv > $line.txt; done < ../100ProductIDs.txt 
+  812  ls
+  813  head 0060193395.txt 
+  814  for file in *.txt ; do cut -d "	" -f 8,9 $file > $file.new ; done
+  815  ls
+  816  mkdir original
+  817  for file in *.txt ; do mv $file original ; done
+  818  ls
+  819  head 0060193395.txt.new 
+  820  cd ~/assignment2
+  821  ls -latr
+  822  ls -la
+  823  alias l="ls -latr"
+  824  alias w="ls -la | wc"
+  825  l 
+  826  $ vi ~/.bash_aliases
+  827  vi ~/.bash_aliases
+  828  cd ~
+  829  l 
+  830  alias
+  831  vi ~/.bashrc
+  832  l 
+  833  w
+  834  ls -latr
+  835  ls -la | wc
+  836  cd assignment2
+  837  l
+  838  w
+  839  w CUSTOMERS
+  840  l CUSTOMERS
+  841  l PRODUCTS/
+  842  wget http://ftp.gnu.org/gnu/datamash/datamash-1.3.tar.gz
+  843  tar -xzf datamash-1.3.tar.gz
+  844  cd datamash-1.3
+  845  ./configure
+  846  make
+  847  cd ~/datamash-1.3
+  848  ./datamash  -W ppearson 1:2 < ../files/c.txt
+  849  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/*.txt
+  850  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file
+  851  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file ; done
+  852  cd ~
+  853  head -n amazon_reviews_us_Books_v1_02.tsv 
+  854  head -n 1 amazon_reviews_us_Books_v1_02.tsv 
+  855  cd assignment2/
+  856  cd datamash-1.3/
+  857  for file in ../PRODUCTS/*.new ; do ./datamash -W ppearson 1:2 < ../PRODUCTS/$file ; done
+  858  cd ~/assignment2/
+  859  cd PRODUCTS/
+  860  ls
+  861  less 0312278586.txt.new 
+  862  cd ~/assignment2/
+  863  history > cmds.log
+  864  cd ~
+  865  ls
+  866  head -n 1 amazon_reviews_us_Books_v1_02.tsv 
+  867  cd assignment2/
+  868  cd CUSTOMERS/
+  869  mkdir helpful
+  870  for file in *.new ; do cut -d "	" -f 9 $file > $file.helpful ; done
+  871  for file in *.new ; do cut -d "	" -f 2 $file > $file.helpful ; done
+  872  ls
+  873  head 2059117.txt.new.helpful
+  874  head 20595117.txt.new.helpful 
+  875  head 20595117.txt.new
+  876  for file in *.new.helpful ; do mv $file helpful ; done
+  877  ls
+  878  cd helpful
+  879  for file in *.new.helpful ; for i in $file ; do total = $(echo $total+$i | bc); echo total/100 | bc ; done
+  880  for file in *.new.helpful ; for i in $file ; do total = $(echo $total+$i | bc); echo total/100 | bc ; done ; done
+  881  for file in *.new.helpful ; for i in $file ; do total = $(echo $total+$i | bc); do echo total/100 | bc ; done ; done
+  882  ls
+  883  mkdir assignment2
+  884  cd assignment2/
+  885  script a2.txt
+  886  ls
+  887  cd assignment2
+  888  ls
+  889  head a2.txt
+  890  ls
+  891  cd CUSTOMERS/
+  892  ls
+  893  head 20595117.txt.new 
+  894  head -n 1 ../../amazon_reviews_us_Books_v1_02.tsv 
+  895  cd datamash-1.3/
+  896  cd ~
+  897  ls
+  898  cd assignment2/
+  899  ls
+  900  cd datamash-1.3/
+  901  cd ~
+  902  ls
+  903  cd assignment2/
+  904  ls
+  905  cd CUSTOMERS/
+  906  ls
+  907  cd ~
+  908  cd assignment2/
+  909  ls
+  910  cd datamash-1.3/
+  911  ls
+  912  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/*.txt
+  913  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/*.new
+  914  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/*.txt.new
+  915  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/20595117.txt.new 
+  916  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file
+  917  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file ; done
+  918  cd ~
+  919  ls
+  920  head -n 1 amazon_reviews_us_Books_v1_02.tsv 
+  921  for file in *.txt ; do cut -d "	" -f 8,9 $file > $file.new ; done
+  922  cd CUST
+  923  cd assignment2/
+  924  cd CUS
+  925  cd CUSTOMERS/
+  926  ls
+  927  cd original
+  928  cd /.
+  929  cd ~
+  930  cd assignment2/
+  931  cd CUSTOMERS/
+  932  ls
+  933  rm *.txt.new*
+  934  ls
+  935  cd orig
+  936  cd original/
+  937  for file in *.txt ; do cut -d "	" -f 9,8 $file > $file.new ; done
+  938  ls
+  939  mv *.txt.new ../../CUSTOMERS/
+  940  ls
+  941  cd ../../CUSTOMERS/
+  942  ls
+  943  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file ; done
+  944  for file in ../CUSTOMERS/*.txt.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file ; done
+  945  ls
+  946  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file ; done
+  947  ./datamash  -W ppearson 1:2 < ../CUSTOMERS/20595117.txt.new 
+  948  ls
+  949  head 20595117.txt.new 
+  950  cd ../datamash-1.3/
+  951  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file ; done
+  952  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 2:1 < ../CUSTOMERS/$file ; done
+  953  cd ../../assignment2/
+  954  ls
+  955  cd PRODUCTS/
+  956  ls
+  957  head 0671524313.txt.new 
+  958  head 043935806X.txt.new 
+  959  ls
+  960  cd ../../assignment2/CUSTOMERS/
+  961  ls
+  962  cd helpful
+  963  ls
+  964  head 52173832.txt.new.helpful 
+  965  for file in *.txt.new.helpful ; do awk '{total += $1} END {print total/NR}' ; done
+  966  awk '{total += $1} END {print total/NR}' 52173832.txt.new.helpful 
+  967  for file in *.txt.new.helpful ; do awk '{total += $1} END {print total/NR}' ; done
+  968  for file in *.txt.new.helpful ; do awk '{total += $1} END {print total/NR}' $file ; done
+  969  awk '{total += $1} END {print total/NR}' 20595117.txt.new.helpful 
+  970  cd assignment2
+  971  cd ~
+  972  cd assignment2
+  973  cd PRODUCTS/
+  974  ls
+  975  for file in *.new ; do cut -d "	" -f 2 $file > $file.helpful ; done
+  976  ls
+  977  mkdir helpful
+  978  for file in *.new.helpful ; do mv $file helpful ; done
+  979  ls
+  980  cd helpful
+  981  for file in *.txt.new.helpful ; do awk '{total += $1} END {print total/NR}' $file ; done
+  982  for file in *.txt.new.helpful ; do awk '{total += $1} END {print total/NR}' $file >> mean.txt ; done
+  983  ls
+  984  sort mean.txt
+  985  sort -n mean.txt 
+  986  cd ../../../assignment2/CUSTOMERS/
+  987  ls
+  988  cd helpful
+  989  ls
+  990  for file in *.txt.new.helpful ; do awk '{total += $1} END {print total/NR}' $file >> mean.txt ; done
+  991  ls
+  992  sort -n mean.txt 
+  993  cd ../../../assignment2/
+  994  cmds.log > history
+  995  history > cmds.log
+  996  head cmds.log
+  997  wc cmds.log 
+  998  ls
+  999  less a2.txt
+ 1000  d da
+ 1001  cd data
+ 1002  cd datamash-1.3/
+ 1003  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 2:1 < ../CUSTOMERS/$file ; done
+ 1004  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 2:1 < ../CUSTOMERS/$file >> helpfuless_review.txt; done
+ 1005  ls
+ 1006  sort -n helpfuless_review.txt 
+ 1007  mv helpfuless_review.txt assignment2
+ 1008  ls
+ 1009  mv assignment2 helpfulness_review.txt
+ 1010  ls
+ 1011  mv helpfulness_review.txt ../../assignment2/
+ 1012  ls
+ 1013  cd ../../assignment2/
+ 1014  ls
+ 1015  cd CUSTOMERS/
+ 1016  l
+ 1017  w
+ 1018  ls
+ 1019  w
+ 1020  cd helpful/
+ 1021  ls
+ 1022  w
+ 1023  l
+ 1024  cd 
+ 1025  ls
+ 1026  cd ..
+ 1027  ls
+ 1028  cd CUSTOMERS/
+ 1029  ls
+ 1030  head 52615377.txt.new 
+ 1031  Sed ’s/\(\d\)\t\(.*\)$/\2\t\1/’ 52615377.txt.new 
+ 1032  sed ’s/\(\d\)\t\(.*\)$/\2\t\1/’ 52615377.txt.new 
+ 1033  sed ’s/\(.\)\t\(.*\)$/\2\t\1/’ 52615377.txt.new 
+ 1034  cd ../../assignment2/
+ 1035  cd datamash-1.3/
+ 1036  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 2:1 < ../CUSTOMERS/$file ; done
+ 1037  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file ; done
+ 1038  cd ../../assignment2/
+ 1039  ls
+ 1040  cd CUSTOMERS/
+ 1041  ls
+ 1042  cd helpful/
+ 1043  ls
+ 1044  head mean.txt 
+ 1045  tmux 
+ 1046  tmux ls
+ 1047  sort productids.txt | uniq -c | sort -nk1 --reverse | wc
+ 1048  sort customerids.txt | uniq -c | sort -nk1 --reverse | wc
+ 1049  cd ~
+ 1050  cd assignment2/
+ 1051  ls
+ 1052  sort product_title.txt | uniq -c | sort -nk1 --reverse | wc
+ 1053  vi 100CustomerIDs.txt 
+ 1054  vi 100ProductIDs.txt 
+ 1055  cd CUSTOMERS/
+ 1056  l
+ 1057  cd ..
+ 1058  cd PRODUCTS/
+ 1059  l
+ 1060  w
+ 1061  cd ../CUSTOMERS/
+ 1062  w
+ 1063  echo before I did alias l="ls latr" and alias w="ls -la|wc"
+ 1064  echo I went into vi ~/.bash_aliases and then added them into bashrc manually
+ 1065  cd ..
+ 1066  cd datamash-1.3/
+ 1067  for file in ../CUSTOMERS/*.new ; do ./datamash -W ppearson 1:2 < ../CUSTOMERS/$file ; done
+ 1068  cd ../CUSTOMERS/
+ 1069  cd helpful/
+ 1070  ls
+ 1071  head mean.txt 
+ 1072  echo I had a for loop initially that calculated the mean of each file and put it into mean.txt for CUSTOMERS and PRODUCTS
+ 1073  sort -n mean.txt 
+ 1074  cd ../../PRODUCTS/helpful/
+ 1075  ls
+ 1076  head mean.txt 
+ 1077  sort -n mean.txt 
+ 1078  echo did the same thing for PRODUCTS except I used the star rating instead
+ 1079  history > cmds.log
+ 1080  ls
+ 1081  mv cmds.log ../../../assignment2/
+ 1082  ls
+ 1083  cd ..
+ 1084  ls
+ 1085  rm history
+ 1086  ls
+ 1087  ls
+ 1088  head '*.txt.new' 
+ 1089  cd assignment2/
+ 1090  ls
+ 1091  rm a2.txt 
+ 1092  cd ~
+ 1093  ls
+ 1094  cd WS4
+ 1095  ls
+ 1096  cd CUSTOMERS/
+ 1097  ls
+ 1098  cd ~
+ 1099  ls
+ 1100  cd WS4
+ 1101  ls
+ 1102  cd PRODUCTS/
+ 1103  ;s
+ 1104  ls
+ 1105  cd ~
+ 1106  head -n 1 amazon_reviews_us_Books_v1_02.tsv 
+ 1107  cd ws3
+ 1108  ls
+ 1109  script a2.txt
+ 1110  ls
+ 1111  perl -pe 's/\x1b\[[0-9;]*[mG]//g' a2.txt > a2.txt.clean
+ 1112  tr -cd '\11\12\15\40-\176' < a2.txt.clean > a2.txt.clean2
+ 1113  sed -i "s/^M//g" a2.txt.clean2
+ 1114  ls
+ 1115  rm a2.txt
+ 1116  rm a2.txt.clean
+ 1117  ls
+ 1118  vi a2.txt.clean2 
+ 1119  ls
+ 1120  mv a2.txt.clean2 ../assignment2/
+ 1121  ls
+ 1122  cd ../assignment2/
+ 1123  ls
+ 1124  git init
+ 1125  git add a2.txt.clean2 
+ 1126  git commit -m "a2"
+ 1127  git remote add origin https://github.com/adot18/assignment2.git
+ 1128  git push -u origin main
+ 1129  git push -u origin master
+ 1130  :bd
+ 1131  kill session
+ 1132  kill-session
+ 1133  script 
+ 1134  tmux ls
+ 1135  tmux attach-session
+ 1136  tmux
+ 1137  tmux attach-session
+ 1138  cd ws5
+ 1139  ls
+ 1140  cd ws5
+ 1141  cd CUSTOMERS/
+ 1142  ls
+ 1143  cd ws3
+ 1144  ls
+ 1145  less customerids.txt 
+ 1146  cd ..
+ 1147  ls
+ 1148  cd ws3
+ 1149  ls
+ 1150  less helpful.txt 
+ 1151  sort customerids.txt | uniq -c | sort -nk1 --reverse | head
+ 1152  sort customerids.txt | uniq -c | sort -nk1 --reverse > customerids.txt.sorted.uc.reversed
+ 1153  ls
+ 1154  cp customerids.txt.sorted.uc.reversed customerids.txt.sorted.uc.reversed.top1000
+ 1155  vi customerids.txt.sorted.uc.reversed.top1000
+ 1156  wc customerids.txt.sorted.uc.reversed.top1000 
+ 1157  mkdir ~/ws5/CUSTOMERS
+ 1158  for i in `cat customerids.txt.sorted.uc.reversed.top1000` ; do grep $i ../amazon_reviews_us_Books_v1_02.tsv ; done >> ~/ws5/CUSTOMERS/$i.txt
+ 1159  for i in `cat customerids.txt.sorted.uc.reversed.top1000` ; do grep $i ../amazon_reviews_us_Books_v1_02.tsv >> ~/ws5/CUSTOMERS/$i.txt; echo $i; done
+ 1160  cd ~/WS5
+ 1161  cd ~/ws5
+ 1162  ls
+ 1163  cd CUSTOMERS/
+ 1164  l
+ 1165  cd ~/ws5
+ 1166  ls
+ 1167  history > cmds.log
+ 1168  perl -pe 's/\x1b\[[0-9;]*[mG]//g' ws5.txt > ws5.txt.clean
+ 1169  tr -cd '\11\12\15\40-\176' < ws5.txt.clean > ws5.txt.clean2
+ 1170  sed -i "s/^M//g" ws5.txt.clean2
+ 1171  ls
+ 1172  git init
+ 1173  git add cmds.log 
+ 1174  git add ws5.txt.clean2 
+ 1175  git commit -m "ws5"
+ 1176  git remote add origin https://github.com/adot18/ws5.git
+ 1177  git push -u origin master
+ 1178  mv ws5.txt ws5
+ 1179  ls
+ 1180  cd ws5
+ 1181  ls
+ 1182  tmux attach-session
+ 1183  ls
+ 1184  echo `pwd`
+ 1185  man ps
+ 1186  echo $HOME
+ 1187  echo $SHELL
+ 1188  PRINTENV
+ 1189  printenv
+ 1190  $ prompt
+ 1191  prompt
+ 1192  ls
+ 1193  cd worksheet1/
+ 1194  ls
+ 1195  time sort a1.txt >> sorted
+ 1196  ls
+ 1197  rm sorted 
+ 1198  ls
+ 1199  sort time a1.txt >> sorted
+ 1200  cd /
+ 1201  cd.
+ 1202  cd .
+ 1203  ls
+ 1204  cd ~
+ 1205  ls
+ 1206  cd .
+ 1207  ls
+ 1208  cd assignment2/
+ 1209  cd .
+ 1210  ls
+ 1211  cd .
+ 1212  find  .  -type f -name  "first.cpp"  -exec   rm   {} \
+ 1213  find  .  -type f -name  "first.cpp"  -exec   rm   {} \;
+ 1214  ls
+ 1215  cd ~
+ 1216  ;s
+ 1217  ls
+ 1218  touch first.cpp
+ 1219  ls
+ 1220  find  .  -type f -name  "first.cpp"  -exec   rm   {} \;
+ 1221  ls
+ 1222  cd assignment2/
+ 1223  touch first.cpp
+ 1224  cd ~
+ 1225  ls
+ 1226  find  .  -type f -name  "first.cpp"  -exec   rm   {} \;
+ 1227  cd assignment2/
+ 1228  ls
+ 1229  touch first.cpp
+ 1230  ls
+ 1231  cd PRODUCTS/
+ 1232  find  .  -type f -name  "first.cpp"  -exec   rm   {} \;
+ 1233  cd ./
+ 1234  cd /.
+ 1235  cd ~
+ 1236  cd assignment2/
+ 1237  ls
+ 1238  rm first.cpp
+ 1239  prompt
+ 1240  touch ?.txt
+ 1241  ls
+ 1242  find . -type f -name "?"  -print
+ 1243  ls
+ 1244  rm ?.txt
+ 1245  touch dwawdk?.txt
+ 1246  ls
+ 1247  find . -type f -name "?"  -print
+ 1248  cd ~
+ 1249  find . -type f -name "?"  -print
+ 1250  ls
+ 1251  find . -type f -name "*"  -print
+ 1252  find . -type f -name "?"  -print
+ 1253  cd assignment2/
+ 1254  ls
+ 1255  rm dwawdk\?.txt 
+ 1256  touch o.txt
+ 1257  find . -type f -name "?"  -print
+ 1258  cd ~
+ 1259  find . -type f -name "?"  -print
+ 1260  cd assignment2/
+ 1261  find . -type f -name "?"  -print
+ 1262  find . -type f -name "*"  -print
+ 1263  export DATETIME=`date "+%Y%m%d_%H%M%S"`
+ 1264  echo $DATETIME 
+ 1265  cd assignment2/PRODUCTS/
+ 1266  cp 043935806X.txt.new 043935806X.$DATETIME.txt
+ 1267  l
+ 1268  ln -s 043935806X.20211014_181014.txt 043935806X.LATEST.txt
+ 1269  l
+ 1270  vi 043935806X.20211014_181014.txt 
+ 1271  cd ..
+ 1272  vi cronfile2
+ 1273  vi 043935806X.20211014_181014.txt
+ 1274  cd assignment2/PRODUCTS/
+ 1275  vi 043935806X.20211014_181014.txt
+ 1276  cd ~
+ 1277  vi cronfile2
+ 1278  vi cron
+ 1279  vi cronfile2 
+ 1280  crontab cronfile2
+ 1281  cron -l
+ 1282  cd assignment2/
+ 1283  cd PRODUCTS/
+ 1284  vi 043935806X.20211014_181014.txt
+ 1285  cd ~
+ 1286  cat cronfile2 
+ 1287  crontab cronfile2
+ 1288  crontab -e
+ 1289  crontab -l
+ 1290  cat assignment2/PRODUCTS/AVERAGE.txt 
+ 1291  cd assignment2/PRODUCTS/
+ 1292  mv AVERAGE.txt 043935806X.AVERAGE.txt
+ 1293  cd ~
+ 1294  cat assignment2/PRODUCTS/043935806X.AVERAGE.txt 
+ 1295  ls
+ 1296  cd ws6
+ 1297  mkdir ws6
+ 1298  ls
+ 1299  cd assignment2/
+ 1300  ls
+ 1301  cd PRODUCTS/
+ 1302  ls
+ 1303  cd $
+ 1304  cd ~
+ 1305  ls
+ 1306  script ws6.txt
+ 1307  history > cmds.log
+ 1308  less ws6.txt
+ 1309  sed 's/Ctrl-vEsc//g' ws6.txt ws6.txt.new
+ 1310  2R1;95;0c10;rgb:ffff/ffff/ffff11;rgb:1e1e/1e1e/1e1e
+ 1311  ls
+ 1312  cd ws6
+ 1313  ls
+ 1314  cd ws6
+ 1315  ls
+ 1316  cd ~
+ 1317  mv ws6.txt ws6
+ 1318  tail cmds.log
+ 1319  mv cmds.log ws6
+ 1320  ls
+ 1321  cd ws6
+ 1322  ls
+ 1323  sed 's/Ctrl-vEsc//g' ws6.txt
+ 1324  sed 's/Ctrl-vCtrl-[//g' ws6.txt 
+ 1325  perl -pe 's/\x1b\[[0-9;]*[mG]//g' ws6.txt > ws6.txt.clean
+ 1326  tr -cd '\11\12\15\40-\176' ws6.txt.clean > ws6.txt.clean2
+ 1327  tr -cd '\11\12\15\40-\176' < ws6.txt.clean > ws6.txt.clean2
+ 1328  sed -i "s/^M//g" ws6.txt.clean2
+ 1329  less ws6.txt.clean2
+ 1330  git init
+ 1331  git add ws6.txt.clean2 cmds.log 
+ 1332  git commit -m "ws6"
+ 1333  git remote add origin https://github.com/adot18/ws6.git
+ 1334  git push -u origin master
+ 1335  ls
+ 1336  cd ws3
+ 1337  ls
+ 1338  cd ~
+ 1339  ls
+ 1340  cd WS4
+ 1341  ls
+ 1342  cd PRODUCTS/
+ 1343  ls
+ 1344  cd ~
+ 1345  ls
+ 1346  cd worksheet1/
+ 1347  ls
+ 1348  cd ~
+ 1349  ls
+ 1350  head -n 1 amazon_reviews_us_Books_v1_02.tsv 
+ 1351  cd ws3
+ 1352  ls
+ 1353  less productids.txt 
+ 1354  cd ~
+ 1355  ls
+ 1356  cd WS4
+ 1357  ls
+ 1358  cd PRODUCTS/
+ 1359  ls
+ 1360  cd 081
+ 1361  less 0811828964.
+ 1362  less 0811828964.txt
+ 1363  head -n 1 0811828964.txt
+ 1364  less 0811828964.txt
+ 1365  head -n 1
+ 1366  head -n 1 0811828964.txt
+ 1367  cd ~
+ 1368  ls
+ 1369  head -n 1 amazon_reviews_us_Books_v1_02.tsv 
+ 1370  awk -F"\t" '{print $14}' amazon_reviews_us_Books_v1_02.tsv > review_body.txt
+ 1371  grep 0811828964 review_body.txt > review
+ 1372  ls
+ 1373  less review
+ 1374  rm review
+ 1375  ls
+ 1376* grep 0811828964 amazon_reviews_us_Books_v1_02.tsv > revie
+ 1377  less review.txt
+ 1378  head review_body.txt 
+ 1379  ls
+ 1380  rm review.txt
+ 1381  rm review_body.txt 
+ 1382  ls
+ 1383  grep 0811828964 amazon_reviews_us_Books_v1_02.tsv > review.txt
+ 1384  head -n 1 review.txt 
+ 1385  awk -F"\t" '{print $14}' review.txt > review_body.txt
+ 1386  ls
+ 1387  less review_body.txt 
+ 1388  mkdir ws7
+ 1389  ls
+ 1390  mv review_body.txt ws6
+ 1391  script ws7.txt
+ 1392  ls
+ 1393  mv ws7.txt ws6
+ 1394  cd ws6
+ 1395  ls
+ 1396  mv ws7.txt ~
+ 1397  cd ~
+ 1398  ls
+ 1399  cd ws7.txt ws7
+ 1400  ls
+ 1401  mv ws7.txt ws7
+ 1402  cd ws7/
+ 1403  ls
+ 1404  git init
+ 1405  history > cmds.log
